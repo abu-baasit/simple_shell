@@ -18,7 +18,7 @@ int main(int ac, char **av, char **env)
 	if (isatty(0) == 1)
 		input = 1;
 
-	error = 0;
+	errno = 0;
 
 	while (1)
 	{
@@ -30,7 +30,7 @@ int main(int ac, char **av, char **env)
 		_interactnControl(av, env, &counter, &input);
 		counter++;
 	}
-		return (error);
+		return (errno);
 
 }
 /**
