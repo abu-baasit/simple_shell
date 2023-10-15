@@ -43,7 +43,7 @@ void alert_error(int fdesc, int commandNo, char *s1, char *s2, char *s3)
 
 	/*custom output not found*/
 
-	while (*s2)
+	while (*s3)
 		write(fdesc, &(*s3), 1) s3++;
 
 	write(fdesc, "\n", 1);

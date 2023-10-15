@@ -22,7 +22,7 @@ char *_strdup(char *str)
 	while (str[len])
 		len++;
 
-	deplicate = malloc(sizeof(char) * (len + 1));
+	duplicate = malloc(sizeof(char) * (len + 1));
 
 	if (duplicate == NULL)
 		return (NULL);
@@ -54,26 +54,26 @@ int _strlen(char *s)
 
 /**
  * _strstr - function that helps to locate a substribg
- * @searchstring: string to be searched
- * @mainstring: the sunstring in question
+ * @searchString: string to be searched
+ * @mainString: the sunstring in question
  * Return: Return pointer to substring or NULL if missing
  */
-char *_strstr(char *searchstring, char *mainstring)
+char *_strstr(char *searchString, char *mainString)
 {
 	int m, n;
 
-	for (m = 0, searchstring[m] != '\0'; m++)
+	for (m = 0, searchString[m] != '\0'; m++)
 
 	{
 
-		for (n = 0; mainstring[n] != '\0'; n++)
+		for (n = 0; mainString[n] != '\0'; n++)
 
 		{
-			if (searchstring[m + n] != mainstring[n])
+			if (searchString[m + n] != mainString[n])
 				break;
 		}
-		if (!mainstring[n])
-			return (&searchstring[m]);
+		if (!mainString[n])
+			return (&searchString[m]);
 	}
 	return (NULL);
 }

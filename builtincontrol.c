@@ -114,7 +114,7 @@ void cdFunction(char **av, char **env, char **tokenArray)
 */
 void envFunction(char **av, char **env, char **tokenArray)
 {
-	ink k = 0, n = 0;
+	int k = 0, n = 0;
 
 	(void)av;
 	(void)tokenArray;

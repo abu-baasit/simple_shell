@@ -1,7 +1,7 @@
 #include "shell.c"
 
 /**
- * pathcontrol - A function that controls the path
+ * pathControl - A function that controls the path
  * when a command name is passed
  * @av: argument passed
  * @tokenArray: argument for command
@@ -12,7 +12,7 @@
 
 int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
 {
-	char **arrayPath = splitPath(getPath(env)), *fullpath;
+	char **arrayPath = splitPath(getPath(env)), *fullPath;
 	int k = 0, len_str, used_execve;
 	pid_t used_pid;
 	int status = -1;
@@ -23,7 +23,7 @@ int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
 
 	while (arrayPath[k])
 	{
-		len_str = _strlen(array[k]) + _strlen(tokenArray[0]) + 2;
+		len_str = _strlen(arrayPath[k]) + _strlen(tokenArray[0]) + 2;
 		fullPath = malloc(len_str);
 		_strcpy(fullPath, arrayPath[k]);
 		_strcat(fullPath, "/");
@@ -40,7 +40,7 @@ int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
 				return (-1);
 			else if (used_pid == 0)
 			{
-				used_execve + execve(fullPath, tokenArray, env);
+				used_execve = execve(fullPath, tokenArray, env);
 				if (used_execve == -1)
 					perror(av[0]), exit(EXIT_FAILURE);
 			}
@@ -52,4 +52,3 @@ int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
 	freeTokens(arrayPath);
 	return (status);
 }
-
