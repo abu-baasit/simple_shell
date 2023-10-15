@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *main - Asimple shell
+ *main - A simple shell
  *@ac: The first argument variable
  *@av: The second argument varable
  *@env: an environment variable
@@ -27,10 +27,10 @@ int main(int ac, char **av, char **env)
 			write(1, "$", 2);
 		}
 
-		interactive_mode(av, env, &counter, &input);
+		_interactnControl(av, env, &counter, &input);
 		counter++;
 	}
-		return (erro);
+		return (error);
 
 }
 /**
