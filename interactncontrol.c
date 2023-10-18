@@ -1,15 +1,15 @@
 #include "shell.h"
 /**
- * _interactnControl - A feunction that controls the interactive mode
+ * interactnControl - A function that controls the interactive mode
  * @av: command line argument
  * @counter: command line counter
  * @input: interactive mode
  * @env: environment variable
  * eturn: void
  */
-void _interactnControl(char **av, int *counter, char **env, int *input)
+void interactnControl(char **av, char **env, int *counter, int *input)
 {
-	char **tokenArray = handleInput(av, input), *inpath = NULL;
+	char **tokenArray = handleInput(av, input), *inPath = NULL;
 
 	if (tokenArray[0] == NULL || tokenArray == NULL)
 
@@ -30,14 +30,14 @@ void _interactnControl(char **av, int *counter, char **env, int *input)
 	{
 		if (controlPath(av, env, tokenArray, counter) == -1)
 		{
-			alert_error(2, *counter, av[0], tokenArray[0]. "not found");
+			alert_error(2, *counter, av[0], tokenArray[0], "not found");
 			freeTokens(tokenArray);
 			if (*input != 1)
 				exit(127);
 			errno = 127;
 			return; /*Error status when path not found*/
 		}
-		freeTokens(tokens(Array);
+		freeTokens(tokenArray);
 				return;
 	}
 	/*handling absolute path*/
@@ -52,7 +52,7 @@ void _interactnControl(char **av, int *counter, char **env, int *input)
  * Return: void
  */
 
-void fullPathControl(char **av, char **env, char **tokenArray, int input)
+void fullPathControl(char **tokenArray, char **env, char **av, int input)
 {
 	pid_t used_pid;
 	int used_execve;
@@ -65,7 +65,7 @@ void fullPathControl(char **av, char **env, char **tokenArray, int input)
 			exit(EXIT_FAILURE);
 	else if (used_pid == 0)
 	{
-		used_execve = execve(tokenArray[0], tokrnArray, env);
+		used_execve = execve(tokenArray[0], tokenArray, env);
 		if (used_execve == -1)
 			freeTokens(tokenArray),
 				perror(av[0]), exit(EXIT_FAILURE);
@@ -86,11 +86,10 @@ void fullPathControl(char **av, char **env, char **tokenArray, int input)
  * @inPath: check the command status
  * @counter: command line counter
  * @input: interactive mode
- * @return: void
+ * @return:return void
  */
-
-int lostPathControl(char *inPath, char **av, char **tokenArray, char **env,
-	int *counter)
+int lostPathControl(char *inPath, char **tokenArray, char **env
+		, int *input, int *counter, char **av)
 {
 	inPath = findStringPath(tokenArray[0], getPath(env));
 	if (tokenArray[0][0] != '/' && tokenArray[0][0] != '.'

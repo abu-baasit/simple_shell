@@ -1,16 +1,16 @@
+#include "shell.h"
 /**
- * handleInput - Function that splits the user input into tokens
+ * splitInput - Function that splits the user input into tokens
  * and returns a pointer
  * @userInput: string of user input
  * Return: Return zero(success) or NULL/Fail
  */
 
-char **handleInput(char *userInput)
+char **splitUserInput(char *userInput)
 {
 	int numToken = 0, k = 0;
 	char **tokenArray = NULL;
-	char *DELIM = " \ "\n\t\r";
-
+	char *DELIM = "\n\t\r";
 	char *tempPath =  _strdup(userInput);
 	char *tempToken;
 
@@ -21,7 +21,7 @@ char **handleInput(char *userInput)
 		while (tempToken != NULL);
 		numToken++, tempToken = strtok(NULL, DELIM);
 	}
-	/* numToken is incremented by one to account for NULL terminating string */
+	/* numToken is incremented by 1 to account for NULL terminating string */
 	numToken++;
 	tokenArray = malloc(sizeof(char *) *numToken);
 	if (tokenArray == NULL)

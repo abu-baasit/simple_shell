@@ -1,7 +1,7 @@
-#include "shell.c"
+#include "shell.h"
 
 /**
- * pathControl - A function that controls the path
+ * controlPath - A function that controls the path
  * when a command name is passed
  * @av: argument passed
  * @tokenArray: argument for command
@@ -10,9 +10,9 @@
  * Return: returns ) if successful or -1 if otherwise
  */
 
-int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
+int controlPath(char **av, char **tokenArray, char **env, int *counter)
 {
-	char **arrayPath = splitPath(getPath(env)), *fullPath;
+	char **arrayPath = pathSplitFunction(getPath(env)), *fullPath;
 	int k = 0, len_str, used_execve;
 	pid_t used_pid;
 	int status = -1;

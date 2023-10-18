@@ -24,15 +24,15 @@ int main(int ac, char **av, char **env)
 	{
 		if (input == 1)
 		{
-			write(1, "$", 2);
+			write(1, "$ ", 2);
 		}
 
-		_interactnControl(av, env, &counter, &input);
+		interactnControl(av, env, &counter, &input);
 		counter++;
 	}
 		return (errno);
-
 }
+
 /**
 *freeTokens - Function that frees an array of strings
 *@arrayTokens: the arguement pointer to be freed

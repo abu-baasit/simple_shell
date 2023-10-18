@@ -62,7 +62,7 @@ char *_strstr(char *searchString, char *mainString)
 {
 	int m, n;
 
-	for (m = 0, searchString[m] != '\0'; m++)
+	for (m = 0; searchString[m] != '\0'; m++)
 
 	{
 

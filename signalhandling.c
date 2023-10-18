@@ -9,5 +9,5 @@ void handle_signal(int signalnumber)
 {
 	(void)signalnumber;
 	write(1, "\n", 1);
-	write(1, "$", 2);
+	write(1, "$>me", 2);
 }

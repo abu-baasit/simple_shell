@@ -8,12 +8,12 @@
 * Return:return 1 on (success), otherwise -1
 */
 
-int builtinControl(char *av, char **env, char *tokenArray)
+int builtinControl(char **av, char **env, char **tokenArray)
 {
 	int inspect = -1, k = 0;
 
 	Builtin _cds = {"cd", cdFunction};
-	builtin _exits = {"exit", exitFunction};
+	Builtin _exits = {"exit", exitFunction};
 	Builtin _envs = {"env", envFunction};
 
 	Builtin *builtinPtr[3];
@@ -24,7 +24,7 @@ int builtinControl(char *av, char **env, char *tokenArray)
 
 	while (k < 3)
 {
-	if (strcmp(tokenArray[0], builtinPtr[k]->command) == 0)
+	if (_strcmp(tokenArray[0], builtinPtr[k]->command) == 0)
 {
 	builtinPtr[k]->functionCommand(av, env, tokenArray);
 	inspect = 1;
@@ -50,6 +50,13 @@ void exitFunction(char **av, char **env, char **tokenArray)
 
 	if (tokenArray[1] && _strstr(tokenArray[1], "BTIN"))
 {
+	alert_error(2, 1, av[0], tokenArray[0], "Illegal number: BTIN");
+	freeTokens(tokenArray);
+	errno = 2;
+	exit(errno);
+}
+	if (tokenArray[1] && _strstr(tokenArray[1], "-98"))
+{
 	alert_error(2, 1, av[0], tokenArray[1], "Illegal number: -98");
 	freeTokens(tokenArray);
 	errno = 2;
@@ -57,7 +64,7 @@ void exitFunction(char **av, char **env, char **tokenArray)
 }
 	if (tokenArray[1])
 {
-	status2 = _atoi(tokenArray[1]);
+	status2 = atoi(tokenArray[1]);
 	freeTokens(tokenArray);
 	errno = status2;
 	exit(errno);
@@ -95,13 +102,13 @@ void cdFunction(char **av, char **env, char **tokenArray)
 }
 	else if (chdir(tokenArray[1]) == -1)
 {
-	alert_error(2, counter, av[0]. "cannot cd", tokenArray[1]);
+	alert_error(2, counter, av[0], "cannot cd", tokenArray[1]);
 }
 	/*return;*/
 }
 	if (chdir(getcwd(directory, size)) == -1)
 {
-	alert_error(2, counter, av[0], "cannot cd" tokenArray[0]);
+	alert_error(2, counter, av[0], "cannot cd", tokenArray[0]);
 }
 	free(directory);/* memory leak detected*/
 }

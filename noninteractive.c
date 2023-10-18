@@ -7,11 +7,11 @@
 *@env: The environmental variable
 * Return:return void
 */
-void nonInteractive(char *av, char **env)
+void nonInteractive(char **av, char **env)
 {
-	int input;
+	int input = 0;
 
-	char **tokenArray = handleInput(av, input);
+	char **tokenArray = handleInput(av, &input);
 	pid_t used_pid;
 	int used_execve;
 
@@ -20,7 +20,7 @@ void nonInteractive(char *av, char **env)
 	freeTokens(tokenArray);
 	perror(av[0]),
 	exit(EXIT_FAILURE);
-	else if (used_pid == 0)
+	if (used_pid == 0)
 {
 	used_execve = execve(tokenArray[0], tokenArray, env);
 	if (used_execve == -1)

@@ -31,9 +31,9 @@ void alert_error(int fdesc, int commandNo, char *s1, char *s2, char *s3)
 		numstat = (commandNo / 10) + '0';
 		write(fdesc, &(numstat), 1);
 		numstat = (temp % 10) + '0';
-		write(fdescn & (numstat), 1);
+		write(fdesc, &(numstat), 1);
 	}
-	write(fdesc, &(numstat), 1);
+	write(fdesc, ": ", 2);
 
 	/*command name*/
 	while (*s2)
@@ -44,7 +44,7 @@ void alert_error(int fdesc, int commandNo, char *s1, char *s2, char *s3)
 	/*custom output not found*/
 
 	while (*s3)
-		write(fdesc, &(*s3), 1) s3++;
+		write(fdesc, &(*s3), 1), s3++;
 
 	write(fdesc, "\n", 1);
 }

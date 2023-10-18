@@ -37,7 +37,7 @@ numToken++;
 		k++, tempToken = strtok(NULL, ":");
 			tokenArray[k] = _strdup(tempToken);
 
-			tempToken[k] = NULL;
+			tempToken[k] = '\0';
 			free(tempPath);
 			return (tokenArray);
 }

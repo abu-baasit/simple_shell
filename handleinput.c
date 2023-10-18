@@ -34,7 +34,7 @@ char **handleInput(char **av, int *input)
 	userString[k] = '\0';
 	k++;
 }
-	tokenArray = handleInput(userString);
+	tokenArray = splitUserInput(userString);
 	if (tokenArray == NULL)
 {
 	free(userString), freeTokens(tokenArray);
