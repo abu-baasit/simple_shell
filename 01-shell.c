@@ -2,18 +2,18 @@
 
 /**
  *main - A simple shell
- *@ac: The first argument variable
- *@av: The second argument varable
+ *@argc: The first argument variable
+ *@argv: The second argument varable
  *@env: an environment variable
  *Return: Always (0) when successful
  */
 
-int main(int ac, char **av, char **env)
+int main(int argc, char **argv, char **env)
 {
 	int input = 0;
 
 	counter = 1;
-	(void)ac;
+	(void)argc;
 
 	if (isatty(0) == 1)
 		input = 1;
@@ -24,20 +24,21 @@ int main(int ac, char **av, char **env)
 	{
 		if (input == 1)
 		{
-			write(1, "$", 2);
+			write(1, "$ ", 2);
 		}
 
-		_interactnControl(av, env, &counter, &input);
+		interactnControl(argv, env, &counter, &input);
 		counter++;
 	}
-		return (errno);
 
+	return (errno);
 }
+
 /**
-*freeTokens - Function that frees an array of strings
-*@arrayTokens: the arguement pointer to be freed
-*Return: return void;
-*/
+ * freeTokens -Function that frees an array of strings
+ * @arrayTokens: Argument pointer to be freed
+ * Return: return void;
+ */
 
 void freeTokens(char **arrayTokens)
 {
@@ -48,5 +49,6 @@ void freeTokens(char **arrayTokens)
 		free(arrayTokens[k]);
 		k++;
 	}
+
 	free(arrayTokens);
 }

@@ -1,21 +1,19 @@
-#include "shell.c"
+#include "shell.h"
 
 /**
- * pathControl - A function that controls the path
+ * controlPath - A function that controls the path
  * when a command name is passed
- * @av: argument passed
+ * @argv: argument passed
  * @tokenArray: argument for command
  * @env: environment variables
  * @counter:counter variable pointer
- * Return: returns ) if successful or -1 if otherwise
+ * Return: returns 1 if successful or -1 if otherwise
  */
-
-int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
+int controlPath(char **argv, char **env, char **tokenArray, int *counter)
 {
-	char **arrayPath = splitPath(getPath(env)), *fullPath;
-	int k = 0, len_str, used_execve;
+	char **arrayPath = pathSplitFunction(getPath(env)), *fullPath;
+	int k = 0, len_str, used_execve, status = -1;
 	pid_t used_pid;
-	int status = -1;
 
 	(void)counter;
 	if (arrayPath == NULL)
@@ -42,7 +40,7 @@ int pathcontrol(char **av, char **tokenArray, char **env, int *counter)
 			{
 				used_execve = execve(fullPath, tokenArray, env);
 				if (used_execve == -1)
-					perror(av[0]), exit(EXIT_FAILURE);
+					perror(argv[0]), exit(EXIT_FAILURE);
 			}
 			else
 				wait(&status), free(fullPath), errno = status;

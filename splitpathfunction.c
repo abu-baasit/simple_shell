@@ -10,23 +10,26 @@ char **pathSplitFunction(char *varPath)
 {
 	char **tokenArray = NULL;
 	int numToken = 0, k = 0;
-	char *tempPath = _strdup(varPath);
-	char *tempToken;
+	char *tempPath = _strdup(varPath), *tempToken;
 
 	if (varPath == NULL)
-		return  (NULL);
+		return (NULL);
+
 	if (tempPath != NULL)
 	{
 		tempToken = strtok(tempPath, ":");
 		while (tempToken != NULL)
 			numToken++, tempToken = strtok(NULL, ":");
 	}
-numToken++;
+	/* Increment numToken by 1 */
+	numToken++;
 	tokenArray = malloc(sizeof(char *) * numToken);
 	if (tokenArray == NULL)
-	{perror("Error allocating memory for tokens.");
+	{
+		perror("Error allocating memory for tokens.");
 		free(tempPath);
 		return (NULL);
+		/*exit(EXIT_FAILURE);*/
 	}
 	free(tempPath);
 	tempPath = _strdup(varPath);
@@ -34,10 +37,10 @@ numToken++;
 	tokenArray[k] = _strdup(tempToken);
 
 	while (tempToken != NULL)
-		k++, tempToken = strtok(NULL, ":");
-			tokenArray[k] = _strdup(tempToken);
+		k++, tempToken = strtok(NULL, ":"),
+			 tokenArray[k] = _strdup(tempToken);
 
-			tempToken[k] = NULL;
-			free(tempPath);
-			return (tokenArray);
+	tokenArray[k] = NULL;
+	free(tempPath);
+	return (tokenArray);
 }
