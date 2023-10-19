@@ -2,32 +2,34 @@
 #include <stdio.h>
 
 /**
-* nonInteractive - function that handles the non-interactive mode of the shell
-* @av: first argument from command line
-*@env: The environmental variable
+* nonInteractive - function that handles the non-interactive
+  mode of the shell
+* @argv: first argument from command line
+* @env: The environmental variable
 * Return:return void
 */
-void nonInteractive(char **av, char **env)
+void noninteractive(char **argv, char **env)
 {
-	int input = 0;
+	int input;
 
-	char **tokenArray = handleInput(av, &input);
+	char **tokenArray = handleInput(argv,&input);
 	pid_t used_pid;
 	int used_execve;
 
 	used_pid = fork();
 	if (used_pid == -1)
-	freeTokens(tokenArray);
-	perror(av[0]),
-	exit(EXIT_FAILURE);
-	if (used_pid == 0)
-{
-	used_execve = execve(tokenArray[0], tokenArray, env);
-	if (used_execve == -1)
-	freeTokens(tokenArray), perror(av[0]), exit(EXIT_FAILURE);
-}
+		freeTokens(tokenArray),
+			perror(argv[0]),
+			exit(EXIT_FAILURE);
+	else if (used_pid == 0)
+	{
+		used_execve = execve(tokenArray[0], tokenArray, env);
+		if (used_execve == -1)
+			freeTokens(tokenArray),
+				perror(argv[0]), exit(EXIT_FAILURE);
+	}
 	else
-	wait(NULL);
+		wait(NULL);
 
 	freeTokens(tokenArray);
 }

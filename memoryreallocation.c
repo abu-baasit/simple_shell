@@ -6,7 +6,6 @@
  * @new_val: size of the new memory
  * Return: returns pointer to the newly allocated memory,
  */
-
 void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val)
 {
 	char *ptr1;
@@ -20,15 +19,15 @@ void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val)
 	{
 		free(ptr);
 		return (NULL);
-
 	}
 
 	if (!ptr)
 		return (malloc(new_val));
 
 	ptr1 = malloc(new_val);
-	if (!ptr)
+	if (!ptr1)
 		return (NULL);
+
 	ptr2 = ptr;
 
 	if (new_val < old_val)
@@ -36,11 +35,13 @@ void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val)
 		for (k = 0; k < new_val; k++)
 			ptr1[k] = ptr2[k];
 	}
+
 	if (new_val > old_val)
 	{
 		for (k = 0; k < old_val; k++)
 			ptr1[k] = ptr2[k];
 	}
+
 	free(ptr);
 	return (ptr1);
 }

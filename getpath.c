@@ -9,22 +9,23 @@
 
 char *getPath(char **env)
 {
-	char *main_path = NULL;
+	char *path = NULL;
 	int k = 0;
 
 	while (env[k])
-{
-	if (_strstr(env[k], "PATH") && env[k][0] == 'P' && env[k][4] == '=')
-{
-	main_path = env[k];
-	break;
-}
-	k++;
-}
-	if (main_path != NULL)
-{
-	for (k = 0; k < 6; k++)
-		main_path++;
-}
-	return (main_path);
+	{
+		if (_strstr(env[k], "PATH") && env[k][0] == 'P' && env[k][4] == '=')
+		{
+			path = env[k];
+			break;
+		}
+		k++;
+	}
+	if (path != NULL)
+	{
+		for (k = 0; k < 6; k++)
+			path++;
+	}
+
+	return (path);
 }

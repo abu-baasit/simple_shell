@@ -8,10 +8,10 @@
 */
 char *findStringPath(char *command, char *path)
 {
-	char *value = NULL;
+	char *result = NULL;
 
 	if (path != NULL)
-	value = _strstr(path, command);
+	result = _strstr(path, command);
 
-	return (value);
+	return (result);
 }
