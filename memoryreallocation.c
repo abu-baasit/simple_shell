@@ -6,7 +6,8 @@
  * @new_val: size of the new memory
  * Return: returns pointer to the newly allocated memory,
  */
-void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val)
+void *memory_reallocation(void *ptr, unsigned int old_val,
+		unsigned int new_val)
 {
 	char *ptr1;
 	char *ptr2;

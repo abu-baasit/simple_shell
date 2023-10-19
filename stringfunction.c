@@ -6,7 +6,7 @@
  * @dest: first string
  * @src:second string
  * Return: return 0 if they are equal
-   or less than or greater 1
+ * or less than or greater 1
  */
 char *_strcat(char *dest, char *src)
 {

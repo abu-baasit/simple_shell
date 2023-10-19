@@ -10,11 +10,11 @@
  */
 void interactnControl(char **argv, char **env, int *counter, int *input)
 {
-<<<<<<< HEAD
+
 	char **tokenArray = handleInput(av, input), *inPath = NULL;
-=======
+
 	char **tokenArray = handleInput(argv, input), *inPath = NULL;
->>>>>>> refs/remotes/origin/master
+
 
 	if (tokenArray[0] == NULL || tokenArray == NULL)
 	{

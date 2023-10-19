@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
-<<<<<<< HEAD
 
 extern char **envron;
 
@@ -18,11 +17,10 @@ char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_strstr(char *searchString, char *mainString);
-=======
+
 #include <signal.h>
 #include <sys/types.h>
 #include <stddef.h>
->>>>>>> refs/remotes/origin/master
 
 /**
  * struct Builtin - Structure of function and command
@@ -56,7 +54,8 @@ char *_strdup(char *str);
 
 /*************Memory Allocation Prototypes***********/
 void freeTokens(char **arrayTokens);
-void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val);
+void *memory_reallocation(void *ptr, unsigned int old_val,
+		unsigned int new_val);
 
 
 /*Global status*/
@@ -64,7 +63,7 @@ int status;
 int counter;
 
 /*************Simple Shell Prototypes***************/
-void alert_error(int fd, int command, char *s1, char *    s2, char *s3);
+void alert_error(int fd, int command, char *s1, char *s2, char *s3);
 char **pathSplitFunction(char *varPath);
 char *findStringPath(char *command, char *path);
 char *getPath(char **env);

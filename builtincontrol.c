@@ -79,7 +79,7 @@ void exitFunction(char **argv, char **env, char **tokenArray)
 }
 
 /**
- * cdFunction -The builtin function that changes current directory
+ * cdFunction - The builtin function that changes current directory
  * @argv: command line argument
  * @env: The Environmental variables
  * @tokenArray:tokenized user intake
@@ -113,8 +113,8 @@ void cdFunction(char **argv, char **env, char **tokenArray)
 }
 
 /**
- * envFunction -The  builtin function that
-   prints the environment command
+ * envFunction - The  builtin function that
+ * prints the environment command
  * @argv: Argument vector from command line
  * @env: Environment variables
  * @tokenArray:tokenized user intake

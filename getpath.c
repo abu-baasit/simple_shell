@@ -4,7 +4,7 @@
 /**
 * getPath - Function that handles path from the environmental variables
 * @env:The Environmental variable
-* Returns:returns pointer to the path
+* Return: returns pointer to the path
 */
 
 char *getPath(char **env)
