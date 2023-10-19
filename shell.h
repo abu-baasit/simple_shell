@@ -12,7 +12,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-extern char **envron
+extern char **envron;
 
 /******************custom String functions **********/
 int _strlen(char *s);

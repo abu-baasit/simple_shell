@@ -5,11 +5,11 @@
  * @counter: command line counter
  * @input: interactive mode
  * @env: environment variable
- * eturn: void
+ * Return: void
  */
 void _interactnControl(char **av, int *counter, char **env, int *input)
 {
-	char **tokenArray = handleInput(av, input), *inpath = NULL;
+	char **tokenArray = handleInput(av, input), *inPath = NULL;
 
 	if (tokenArray[0] == NULL || tokenArray == NULL)
 
