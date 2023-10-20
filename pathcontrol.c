@@ -1,7 +1,7 @@
-#include "shell.c"
+#include "shell.h"
 
 /**
- * pathControl - A function that controls the path
+ * controlPath - A function that controls the path
  * when a command name is passed
  * @argv: argument passed
  * @tokenArray: argument for command

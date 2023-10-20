@@ -33,8 +33,6 @@ int main(int argc, char **argv, char **env)
 
 	return (errno);
 }
-
-}
 /**
  * freeTokens -Function that frees an array of strings
  * @arrayTokens: Argument pointer to be freed

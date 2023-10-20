@@ -12,6 +12,7 @@ void interactnControl(char **argv, char **env, int *counter, int *input)
 {
 	char **tokenArray = handleInput(argv, input), *inPath = NULL;
 
+
 	if (tokenArray[0] == NULL || tokenArray == NULL)
 	{
 		free(tokenArray[0]), freeTokens(tokenArray);
@@ -68,7 +69,7 @@ void fullPathControl(char **tokenArray, char **env, char **argv, int input)
 			exit(EXIT_FAILURE);
 	else if (used_pid == 0)
 	{
-		used_execve = execve(tokenArray[0], tokrnArray, env);
+		used_execve = execve(tokenArray[0], tokenArray, env);
 		if (used_execve == -1)
 			freeTokens(tokenArray),
 				perror(argv[0]), exit(EXIT_FAILURE);

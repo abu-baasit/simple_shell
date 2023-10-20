@@ -23,16 +23,6 @@ typedef struct Builtin
 	void (*functionCommand)(char **argv, char **env, char **tokenArray);
 } Builtin;
 
-/*digits and atoi*/
-int _isdigit(int c);
-int _atoi(char *s);
-
-/********** Builtin functions control*********** */
-
-void envFunction(char **argv, char **env, char **tokenArray);
-void cdFunction(char **argv, char **env, char **tokenArray);
-void exitFunction(char **argv, char **env, char **tokenArray);
-
 /*************Custom String Prototypes***************/
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
@@ -41,16 +31,24 @@ char *_strstr(char *searchString, char *mainString);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 
+/********** Builtin functions control*********** */
+void envFunction(char **argv, char **env, char **tokenArray);
+void cdFunction(char **argv, char **env, char **tokenArray);
+void exitFunction(char **argv, char **env, char **tokenArray);
+
+ /*digits and atoi*/
+int _atoi(char *s);
+int _isdigit(int c);
+
 /*************Memory Allocation Prototypes***********/
 void freeTokens(char **arrayTokens);
 void *memory_reallocation(void *ptr
 		, unsigned int old_val, unsigned int new_val);
 /*Global status*/
-int status;
 int counter;
-
+int status;
 /*************Simple Shell Prototypes***************/
-void alert_error(int fd, int command, char *s1, char *    s2, char *s3);
+void alert_error(int fd, int command, char *s1, char *s2, char *s3);
 char **pathSplitFunction(char *varPath);
 char *findStringPath(char *command, char *path);
 char *getPath(char **env);

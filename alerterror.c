@@ -30,6 +30,8 @@ void alert_error(int fd, int commandNo, char *s1, char *s2, char *s3)
 		numstat = (commandNo / 10) + '0';
 		write(fd, &(numstat), 1);
 		numstat = (temp % 10) + '0';
+
+		write(fd, &(numstat), 1);
 		write(fd, &(numstat), 1);
 	}
 	write(fd, ": ", 2);
