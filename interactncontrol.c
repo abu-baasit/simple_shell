@@ -6,7 +6,7 @@
  * @counter: command line counter
  * @input: interactive mode
  * @env: environment variable
- * eturn: void
+ * Return: void
  */
 void interactnControl(char **argv, char **env, int *counter, int *input)
 {
@@ -55,6 +55,7 @@ void interactnControl(char **argv, char **env, int *counter, int *input)
  * Return:return void
  */
 void fullPathControl(char **tokenArray, char **env, char **argv, int input)
+
 {
 	pid_t used_pid;
 	int used_execve;
@@ -67,7 +68,7 @@ void fullPathControl(char **tokenArray, char **env, char **argv, int input)
 			exit(EXIT_FAILURE);
 	else if (used_pid == 0)
 	{
-		used_execve = execve(tokenArray[0], tokenArray, env);
+		used_execve = execve(tokenArray[0], tokrnArray, env);
 		if (used_execve == -1)
 			freeTokens(tokenArray),
 				perror(argv[0]), exit(EXIT_FAILURE);

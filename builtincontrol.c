@@ -15,6 +15,7 @@ int builtinControl(char **argv, char **env, char **tokenArray)
 	Builtin exit_s = {"exit", exitFunction};
 	Builtin env_s = {"env", envFunction};
 
+
 	Builtin *builtinPtr[3];
 
 	builtinPtr[0] = &cd_s;

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell.c"
 /**
  * *memory_reallocation - function that reallocates a memory
  * @ptr: pointer to the memory previously allocated bt malloc
@@ -14,7 +14,6 @@ void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val)
 
 	if (new_val == old_val)
 		return (ptr);
-
 	if (new_val == 0 && ptr)
 	{
 		free(ptr);
@@ -33,7 +32,7 @@ void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val)
 	if (new_val < old_val)
 	{
 		for (k = 0; k < new_val; k++)
-			ptr1[k] = ptr2[k];
+			ptk1[k] = ptr2[k];
 	}
 
 	if (new_val > old_val)

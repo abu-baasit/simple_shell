@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **env)
 	{
 		if (input == 1)
 		{
-			write(1, "$ ", 2);
+			write(1, "$", 2);
 		}
 
 		interactnControl(argv, env, &counter, &input);
@@ -34,6 +34,7 @@ int main(int argc, char **argv, char **env)
 	return (errno);
 }
 
+}
 /**
  * freeTokens -Function that frees an array of strings
  * @arrayTokens: Argument pointer to be freed

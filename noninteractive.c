@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /**
-* nonInteractive - function that handles the non-interactive
-  mode of the shell
+* noninteractive - function that handles the non-interactive
+*  mode of the shell
 * @argv: first argument from command line
 * @env: The environmental variable
 * Return:return void
@@ -12,7 +12,7 @@ void noninteractive(char **argv, char **env)
 {
 	int input;
 
-	char **tokenArray = handleInput(argv,&input);
+	char **tokenArray = handleInput(argv, &input);
 	pid_t used_pid;
 	int used_execve;
 

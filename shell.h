@@ -13,7 +13,7 @@
 
 /**
  * struct Builtin - Structure of function and command
- * @functionCommand: Function to be called when comman    d matches
+ * @functionCommand: Function to be called when command matches
  * @command: Command to be compared
  */
 
@@ -43,9 +43,8 @@ char *_strdup(char *str);
 
 /*************Memory Allocation Prototypes***********/
 void freeTokens(char **arrayTokens);
-void *memory_reallocation(void *ptr, unsigned int old_val, unsigned int new_val);
-
-
+void *memory_reallocation(void *ptr
+		, unsigned int old_val, unsigned int new_val);
 /*Global status*/
 int status;
 int counter;
